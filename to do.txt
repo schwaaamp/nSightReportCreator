@@ -1,0 +1,20 @@
+- Add Aptitude Profile traits to report
+- Add headers to the spectrum image
+- Adjust first image to make it a little higher (x/y coords)
+- Improve test cases (image generation, zahn krava/test client)
+- Refactor
+	- Classnames should be nouns not verbs
+	- Can likely use the supervisor report for both scores and comments
+
+
+
+
+MAYBE
+- Adjust footer to be both left aligned and right aligned
+
+
+
+
+DONE
+- Add bullet points under "Next Steps"
+- Add "Areas to watch for" when score is of a certain value
