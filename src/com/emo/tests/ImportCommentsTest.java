@@ -192,6 +192,14 @@ class ImportCommentsTest extends TestCase {
 		assertEquals(7.0, Trait.WORD_KNOWLEDGE.getScore());	
 		assertEquals(10.0, Trait.SCANNING_ACCURACY.getScore());	
 	}
+	
+	@Test
+	public void testVerbalReasoningNameAndTitle() throws IOException {
+		ScoreAndCommentImporter importer = new ScoreAndCommentImporter();
+		importer.getScoresAndCommentsFromFile(clientName);
+		assertEquals("Verbal Reasoning", Trait.VERBAL_REASONING.getName());
+		assertEquals("Concrete vs Abstract", Trait.VERBAL_REASONING.getTitle());
+	}
 
 	@Test
 	public void testDecimalRegex() {

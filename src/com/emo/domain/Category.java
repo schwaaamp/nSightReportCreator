@@ -23,7 +23,6 @@ public enum Category {
 	}
 
 	public List<Trait> getCategoryTraits() {
-
 		return categoryTraits;
 	}
 

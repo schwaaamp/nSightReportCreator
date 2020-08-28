@@ -50,7 +50,7 @@ public enum Trait {
 			"Degree of commitment to quality or speed in work output."),
 	ABSTRACT("Abstract", "Concrete", "Concrete vs Abstract Reasoning",
 			"Overall reasoning style and comfort with directed versus autonomous problem solving and learning."),
-	VERBAL_REASONING("Verbal Reasoning", "Verbal Reasoning",
+	VERBAL_REASONING("Verbal Reasoning", "Concrete vs Abstract",
 			"Overall reasoning style and comfort with directed versus autonomous problem solving and learning."),
 	NUMERICAL_REASONING("Numerical Reasoning", "Numerical Reasoning",
 			"Comfort, experience, and capability with number and symbol-based problem solving."),
@@ -144,10 +144,10 @@ public enum Trait {
 	public void setChallenge(String challenge) {
 		this.challenge = challenge;
 	}
-	
-	public static List<String> getNamesAndPairs(){
+
+	public static List<String> getNamesAndPairs() {
 		List<String> names = new ArrayList<String>();
-		for(Trait t : Trait.values()) {
+		for (Trait t : Trait.values()) {
 			names.add(t.getName());
 			names.add(t.getPairName());
 		}
@@ -214,7 +214,7 @@ public enum Trait {
 
 		Category.RELIABILITY.setCategoryTraits(reliabilityTraits);
 		categories.add(Category.RELIABILITY);
-		
+
 		List<Trait> aptitudeTraits = new ArrayList<Trait>();
 		aptitudeTraits.add(Trait.VERBAL_REASONING);
 		aptitudeTraits.add(Trait.NUMERICAL_REASONING);
@@ -224,6 +224,25 @@ public enum Trait {
 		Category.APTITUDE_PROFILE.setCategoryTraits(aptitudeTraits);
 		categories.add(Category.APTITUDE_PROFILE);
 		return categories;
+	}
+
+	public static boolean isTraitMemberOfCategory(Trait t, Category c) {
+		List<Category> categories = assignTraitsToCategory();
+		
+		if(c.getCategoryTraits().contains(t)) {
+			return true;
+		}
+		return false;
+		
+		
+//		for(Category cat : categories) {
+//			if(cat.equals(c.APTITUDE_PROFILE)) {
+//				if(cat.getCategoryTraits().contains(c)) {
+//					return true;
+//				}
+//			}
+//		}
+//		return false;
 	}
 
 }

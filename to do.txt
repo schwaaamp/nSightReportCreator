@@ -1,4 +1,5 @@
 - Add headers to the spectrum image
+- Add score to spectrum image
 - Adjust first image to make it a little higher (x/y coords)
 - Improve test cases (image generation, zahn krava/test client)
 - Refactor

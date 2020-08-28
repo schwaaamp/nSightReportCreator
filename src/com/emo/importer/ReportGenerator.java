@@ -26,7 +26,7 @@ public class ReportGenerator {
 		// Create image files for final report
 		ImageProcessor imageProcessor = new ImageProcessor();
 		for (Trait t : Trait.values()) {
-			imageProcessor.createImageFromScore(client.getClientName(), t.getName(), t.getScore());
+			imageProcessor.createImageFromScore(client.getClientName(), t, t.getScore());
 		}
 
 		ChallengeImporter challengeImporter = new ChallengeImporter();

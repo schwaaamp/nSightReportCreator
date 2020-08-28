@@ -18,14 +18,21 @@ import org.apache.poi.xwpf.usermodel.XWPFFooter;
 import org.apache.poi.xwpf.usermodel.XWPFNumbering;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.apache.poi.xwpf.usermodel.XWPFTable;
+import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 import org.apache.xmlbeans.XmlException;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTAbstractNum;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTNumbering;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTbl;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblPr;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblWidth;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STTblWidth;
 
 import com.emo.constants.Constants;
 import com.emo.domain.Category;
 import com.emo.domain.Client;
 import com.emo.domain.Trait;
+import com.itextpdf.text.Font.FontFamily;
 
 public class WordProcessor {
 
@@ -49,7 +56,7 @@ public class WordProcessor {
 	public void createFinalReport(Client client) throws IOException, InvalidFormatException, XmlException {
 
 		String fullPath = Constants.getPath().concat(client.getClientName()).concat("/")
-				.concat(client.getClientName().concat(" Final Review autogen2.docx"));
+				.concat(client.getClientName().concat(" Final Review autogen.docx"));
 
 		XWPFDocument doc = new XWPFDocument();
 		FileOutputStream out = new FileOutputStream(new File(fullPath));
@@ -115,7 +122,7 @@ public class WordProcessor {
 				String img = Constants.getPath().concat(client.getClientName()).concat("/images/")
 						.concat(t.getName().replaceAll("\\s", "").concat(".png"));
 				run.addPicture(new FileInputStream(img), XWPFDocument.PICTURE_TYPE_PNG, img, Units.toEMU(468),
-						Units.toEMU(22));
+						Units.toEMU(37));
 				insertSpacerParagraph(doc);
 
 				// add supervisor report comments

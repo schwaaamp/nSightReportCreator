@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import org.junit.Test;
 
 import com.emo.constants.Constants;
+import com.emo.domain.Trait;
 import com.emo.importer.ImageProcessor;
 
 import junit.framework.TestCase;
@@ -17,21 +18,37 @@ public class ImageProcessorTest extends TestCase {
 
 	@Test
 	public void testCreatingImage() throws IOException {
-		String traitName = "Practical";
+//		String traitName = "Practical";
+		Trait t = Trait.PRACTICAL;
 		ImageProcessor processImages = new ImageProcessor();
-		processImages.createImageFromScore("Zahn Krava", traitName, 5);
+		processImages.createImageFromScore("Test Client", t, 5);
 
-		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Zahn Krava/images/").concat(traitName).concat(".png")));
+		String fileName = t.getName().replaceAll("\\s", "") + ".png";
+		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Test Client/images/").concat(fileName)));
+		assertNotNull(img);
+	}
+
+	@Test
+	public void testScoreOfTen() throws IOException {
+//		String traitName = "Analytical";
+		Trait t = Trait.ANALYTICAL;
+		ImageProcessor processImages = new ImageProcessor();
+		processImages.createImageFromScore("Test Client", t, 10);
+
+		String fileName = t.getName().replaceAll("\\s", "") + ".png";
+		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Test Client/images/").concat(fileName)));
 		assertNotNull(img);
 	}
 
 	@Test
 	public void testScoreOfZero() throws IOException {
-		String traitName = "Analytical";
+//		String traitName = "Analytical";
+		Trait t = Trait.HIGH_SELF_ESTEEM;
 		ImageProcessor processImages = new ImageProcessor();
-		processImages.createImageFromScore("Test Client", traitName, 0);
+		processImages.createImageFromScore("Test Client", t, 0);
 
-		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Test Client/images/").concat(traitName).concat(".png")));
+		String fileName = t.getName().replaceAll("\\s", "") + ".png";
+		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Test Client/images/").concat(fileName)));
 		assertNotNull(img);
 	}
 
