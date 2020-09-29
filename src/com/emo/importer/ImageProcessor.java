@@ -77,6 +77,13 @@ public class ImageProcessor {
 		//decide if trait name or low high terms will be used for spectrum header
 		String leftTerm = Trait.isTraitMemberOfCategory(t, Category.APTITUDE_PROFILE) ? "Low" : t.getName();
 		String rightTerm = Trait.isTraitMemberOfCategory(t, Category.APTITUDE_PROFILE) ? "High" : t.getPairName();
+		
+		//if trait name is concrete/abstract, then put that on the spectrum header
+		// for some reason, this trait is not low/high, and not "verbal reasoning" and in opposite order of all other traits
+		if(Trait.VERBAL_REASONING.getName().equals(t.getName())) {
+			leftTerm = "Concrete";
+			rightTerm = "Abstract";
+		}
 
 		// add left trait name
 		g.setColor(Color.BLACK);

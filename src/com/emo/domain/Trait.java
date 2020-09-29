@@ -50,7 +50,7 @@ public enum Trait {
 			"Degree of commitment to quality or speed in work output."),
 	ABSTRACT("Abstract", "Concrete", "Concrete vs Abstract Reasoning",
 			"Overall reasoning style and comfort with directed versus autonomous problem solving and learning."),
-	VERBAL_REASONING("Verbal Reasoning", "Concrete vs Abstract",
+	VERBAL_REASONING("Verbal Reasoning", "Concrete vs Abstract Reasoning",
 			"Overall reasoning style and comfort with directed versus autonomous problem solving and learning."),
 	NUMERICAL_REASONING("Numerical Reasoning", "Numerical Reasoning",
 			"Comfort, experience, and capability with number and symbol-based problem solving."),

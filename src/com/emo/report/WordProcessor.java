@@ -68,12 +68,13 @@ public class WordProcessor {
 		addHeaderImage(doc);
 		insertSpacerParagraph(doc);
 
-		writeTextParagraph(doc, false, false, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR,
-				"Even the most successful people in business use coaches.", ParagraphAlignment.LEFT,
-				DEFAULT_FONT_FAMILY);
-		writeTextParagraph(doc, true, true, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR,
-				"The fact is, they are successful because they get formal coaching", ParagraphAlignment.LEFT,
-				DEFAULT_FONT_FAMILY);
+		XWPFParagraph aristotleParagraph = doc.createParagraph();
+		XWPFRun aristotleRun1 = aristotleParagraph.createRun();
+		writeText(aristotleRun1, true, true, H3_FONT_SIZE, DARK_RED_FONT_COLOR, HELVETICA_NEUE,
+				"“Knowing yourself is the beginning of all wisdom”");
+
+		XWPFRun aristotleRun2 = aristotleParagraph.createRun();
+		writeText(aristotleRun2, false, false, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR, HELVETICA_NEUE, " - Aristotle");
 
 		insertSpacerParagraph(doc);
 		XWPFParagraph p = doc.createParagraph();
@@ -146,6 +147,12 @@ public class WordProcessor {
 		// leadership style
 		insertSpacerParagraph(doc);
 		insertSectionHeader(doc, Headers.LEADERSHIP_STYLE, client);
+		insertSpacerParagraph(doc);
+		writeTextParagraph(doc, false, false, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR, "Transformational leadership seeks to motivate and inspire workers, choosing to influence rather than direct others.", ParagraphAlignment.LEFT, DEFAULT_FONT_FAMILY);
+		insertSpacerParagraph(doc);
+		writeTextParagraph(doc, false, false, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR, "Transactional leadership depends on self-motivated people who work well in a structured, directed environment.", ParagraphAlignment.LEFT, DEFAULT_FONT_FAMILY);
+		insertSpacerParagraph(doc);
+		writeTextParagraph(doc, false, false, DEFAULT_FONT_SIZE, DEFAULT_FONT_COLOR, "Relational", ParagraphAlignment.LEFT, DEFAULT_FONT_FAMILY);
 
 		// development plan
 		insertSpacerParagraph(doc);
@@ -289,6 +296,10 @@ public class WordProcessor {
 		paragraph = paragraph.replace(" this individual ", client.getGender().equals("m") ? " he " : " she ");
 		paragraph = paragraph.replace("This individual's ", client.getGender().equals("m") ? "His " : "Her ");
 		paragraph = paragraph.replace(" this individual's ", client.getGender().equals("m") ? " his " : " her ");
+
+		// TODO: this needs tested. poor grammar on autogen of tolerance trait
+		// paragraph = paragraph.replace("This behavior is easy people to be around",
+		// "This behavior is easy for people to be around");
 
 		// need to determine how many times the client's name is used and replace with
 		// him/her some

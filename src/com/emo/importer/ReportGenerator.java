@@ -16,7 +16,7 @@ public class ReportGenerator {
 	public static void main(String[] args)
 			throws IOException, ParserConfigurationException, InvalidFormatException, XmlException {
 
-		Client client = new Client("Beth Larkcom", "f");
+		Client client = new Client("Zahn Krava", "m");
 		
 		Trait.assignTraitsToCategory();
 

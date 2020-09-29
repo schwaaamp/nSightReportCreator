@@ -52,4 +52,16 @@ public class ImageProcessorTest extends TestCase {
 		assertNotNull(img);
 	}
 
+	@Test
+	public void testConcreteAbstractSpectrum() throws IOException {
+//		String traitName = "Analytical";
+		Trait t = Trait.VERBAL_REASONING;
+		ImageProcessor processImages = new ImageProcessor();
+		processImages.createImageFromScore("Test Client", t, 3);
+
+		String fileName = t.getName().replaceAll("\\s", "") + ".png";
+		BufferedImage img = ImageIO.read(new File(Constants.getPath().concat("Test Client/images/").concat(fileName)));
+		assertNotNull(img);
+	}
+
 }
